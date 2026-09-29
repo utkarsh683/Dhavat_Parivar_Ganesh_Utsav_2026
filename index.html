@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="gu"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dhavat Parivar Ganesh Utsav 2026 – Accounts Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500;700;800&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>window.Chart||document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>')</script>
+<style>
+:root{--bg:#F7F4FC;--card:#fff;--ink:#1E1B3A;--mut:#6B6890;--line:#E6E1F2;--acc:#F5A300;--pink:#D6336C;--ind:#3B3B98;--grn:#0E9F74;--tint:#FFF1D1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141227;--card:#1E1B3A;--ink:#F3F0FF;--mut:#A9A5CC;--line:#2E2A55;--tint:#3A3050}}
+:root[data-theme="dark"]{--bg:#141227;--card:#1E1B3A;--ink:#F3F0FF;--mut:#A9A5CC;--line:#2E2A55;--tint:#3A3050}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'Noto Sans Gujarati',system-ui,sans-serif}
+h1,h2,h3,.kp b,.tabs button{font-family:'Baloo Bhai 2','Noto Sans Gujarati',system-ui,sans-serif}
+header{background:linear-gradient(135deg,#4A1238 0%,#B3261E 55%,#F08A00 100%);color:#fff;padding:26px 16px 64px;text-align:center}
+.w{max-width:1180px;margin:0 auto}
+header h1{margin:0;font-size:clamp(24px,5vw,40px);line-height:1.15;font-weight:800}
+header p{margin:4px 0 0;opacity:.92}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding:10px 16px;border-bottom:1px solid var(--line)}
+.bar .w{display:flex;gap:12px;align-items:center}
+.sb{flex:1;display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:0 14px}
+.sb:focus-within{border-color:var(--acc)}
+.sb input{flex:1;border:0;background:none;color:var(--ink);font:inherit;padding:11px 0;outline:0;min-width:0}
+.sb button{border:0;background:none;color:var(--mut);font-size:16px;cursor:pointer;display:none}
+.tabs{display:flex;gap:4px}
+.tabs button{border:0;background:none;color:var(--mut);font-size:16px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.tabs button:focus-visible,.chips button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+main{padding:0 16px 40px;margin-top:-40px}
+.hero{background:var(--card);border-radius:20px;padding:20px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(59,59,152,.15)}
+.kps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kp span{display:block;color:var(--mut);font-size:13px}
+.kp b{font-size:clamp(22px,4.6vw,42px);line-height:1.1;font-weight:800}
+.kp.p b{color:var(--grn)}.kp.e b{color:var(--pink)}
+.meter{height:14px;border-radius:9px;background:var(--grn);margin:18px 0 6px;overflow:hidden;opacity:.9}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--pink))}
+.hero p{margin:0;color:var(--mut);font-size:13px}
+.mini{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:14px 0}
+.mini div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.mini span{display:block;font-size:12px;color:var(--mut)}.mini b{font-size:17px}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;min-width:0}
+.c.s2{grid-column:span 2}
+h2{font-size:19px;margin:0 0 10px;font-weight:700}
+h3{font-size:16px;margin:16px 0 6px}
+.cv{position:relative;height:250px}
+.tb{display:flex;justify-content:space-between;gap:10px;padding:7px 10px;border-radius:9px;margin-bottom:4px;background:linear-gradient(90deg,var(--tint) var(--w),transparent 0);font-size:14px}
+.tb span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;font:inherit;font-size:13px;cursor:pointer}
+.chips button.on{background:var(--acc);border-color:var(--acc);color:#1E1B3A;font-weight:600}
+select{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;margin-left:auto}
+.tot{color:var(--mut);font-size:14px;margin:0 0 8px}.tot b{color:var(--ink)}
+.row{display:grid;grid-template-columns:40px 1fr auto 64px 96px;gap:12px;align-items:center;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--tint);font-weight:800;color:var(--pink);font-size:18px}
+.av.ex{font-size:19px}
+.nm b{display:block;line-height:1.3;overflow-wrap:anywhere}.nm small{color:var(--mut)}
+.chip{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:#E3ECFF;color:#2643B5}
+.chip.Cash{background:#DDF6EC;color:#0B7A57}
+.dtx{color:var(--mut);font-size:13px}
+.am{text-align:right;font-size:16px}.am.in{color:var(--grn)}.am.out{color:var(--pink)}
+.empty{text-align:center;color:var(--mut);padding:36px 12px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px 6px;text-align:left;border-bottom:1px solid var(--line)}td:last-child,th:last-child{text-align:right}
+foot{display:block}
+.thx{max-width:1180px;margin:8px auto 28px;padding:0 16px}.thx div{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--acc);border-radius:18px;padding:22px 20px;text-align:center}.thx h2{font-family:'Baloo Bhai 2',sans-serif;font-size:clamp(20px,4vw,28px);margin:0 0 12px;font-weight:800}.thx p{margin:0 auto 10px;max-width:760px;line-height:1.85}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:0 16px 90px}
+@media(max-width:820px){
+.g{grid-template-columns:1fr}.c.s2{grid-column:auto}.mini{grid-template-columns:repeat(2,1fr)}
+.bar .w{display:block}.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);justify-content:space-around;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabs button{display:flex;flex-direction:column;align-items:center;font-size:12px;padding:4px 10px;line-height:1.2;border-radius:12px}
+.tabs button em{font-style:normal;font-size:20px}
+.row{grid-template-columns:38px 1fr auto;grid-template-areas:"a n m" "a d p";gap:2px 10px;padding:10px 12px}
+.row .av{grid-area:a;width:38px;height:38px}.row .nm{grid-area:n}.row .chip{grid-area:m;justify-self:end}.row .dtx{grid-area:d}.row .am{grid-area:p}
+select{margin-left:0}
+}
+@media(max-width:480px){.kps{gap:6px}.hero{padding:14px}.kp span{font-size:11px}}
+</style></head><body>
+<header><div class="w"><h1>🙏 ધાવત પરિવાર ગણેશ ઉત્સવ ૨૦૨૬</h1><p>Dhavat Parivar Ganesh Utsav 2026 – donations, expenses and final profit</p></div></header>
+<div class="bar"><div class="w">
+<label class="sb">🔍<input id="q" type="search" autocomplete="off"><button id="x" aria-label="Clear search">✕</button></label>
+<nav class="tabs" id="tabs"></nav></div></div>
+<main class="w" id="v"></main>
+<section class="thx"><div><h2>ધાવત પરિવાર<br>ગણેશ ઉત્સવ 2026</h2><p>ગણેશ ઉત્સવ 2026 માટે આપેલ દાન, સેવા, સમય અને સહયોગ બદલ આપ સૌનો હૃદયપૂર્વક આભાર. આપના પ્રેમ અને સહકારથી આ પવિત્ર ઉત્સવ સફળ અને યાદગાર બન્યો છે.</p><p>આપ સૌનો નાનો કે મોટો સહયોગ અમારા માટે અમૂલ્ય છે. આપનો વિશ્વાસ અને સાથ કરમડી યુવક મંડળને સતત સેવા અને સારા કાર્ય માટે પ્રેરણા આપે છે.</p></div></section>
+<footer>Source: Dhavat_Parivar_Ganesh_Utsav_2026 Excel file • Jay Ganesh 🐘</footer>
+<script>
+const D={"don":[["Hitesh h patel","",13000,"UPI","2026-08-24"],["Patel hiren sudhirbhai","",5111,"UPI","2026-09-26"],["Patel mitesh kamleshbhai (mikabhai)","",5111,"UPI","2026-09-26"],["Patel jeel nikulbhai","",5101,"UPI","2026-09-08"],["Patel gaurav kanubhai (USA)","",5002,"UPI","2026-09-08"],["Patel preet naveenbhai (uk)","",5001,"UPI","2026-09-07"],["Patel yash atulbhai (australia)","",5000,"UPI","2026-09-07"],["Patel vivek Bhupendrabhai","",3100,"UPI","2026-09-14"],["Patel Ankit sanjay bhai","",3000,"UPI","2026-09-04"],["Patel lomesh manubhai","",2500,"UPI","2026-09-14"],["Patel jay harshad bhai","",2500,"UPI","2026-09-05"],["Patel dipak ratilala bhai","9601603296",2250,"UPI","2026-08-30"],["Patel dhaval girishbhai","",2111,"UPI","2026-09-16"],["Patel jignesh bharat bhai","",2100,"UPI","2026-09-26"],["Patel jatin arvindbhai","",2100,"UPI","2026-09-19"],["Mahant jay & het mahendrabhai","9773188294",2100,"UPI","2026-09-03"],["Patel Jitendrabhai indubgai","",2001,"UPI","2026-09-02"],["Patel jalkesh paresh bhai","7600698215",1501,"UPI","2026-08-29"],["Patel meet vinubhai (UK)","",1500,"UPI","2026-08-30"],["Upadhyay krushnal dewal bhai","9662615222",1500,"Cash","2026-08-30"],["Patel bhumin jayantibhai","",1251,"UPI","2026-09-19"],["Patel daxesh bhikhabhai","",1111,"UPI","2026-09-29"],["Patel sameer dineshbhai","",1111,"UPI","2026-09-14"],["Patel shlok ramesh bhai","9662482399",1111,"UPI","2026-09-06"],["Patel yash atulbhai (uk)","9106336808",1111,"UPI","2026-09-06"],["Patel jayantibhai bhailal bhai","",1111,"Cash","2026-09-06"],["Patel ashwinbhai kanubhai(masti band)","",1111,"UPI","2026-09-06"],["Patel montu maheshbhai","9898458960",1111,"UPI","2026-09-03"],["Patel akshay bhavesh bhai","9687271854",1111,"UPI","2026-09-02"],["Patel mayank prakashbhai","7600808530",1111,"UPI","2026-09-02"],["Patel neel Jitendrabhai","9998728612",1111,"UPI","2026-09-02"],["Patel keval jayeshbhai","",1111,"UPI","2026-08-30"],["Patel Gaurang prakash bhai","",1111,"UPI","2026-08-29"],["Kartik upadhyay","7600271130",1111,"UPI","2026-08-29"],["Arpit dhirubhai patel","8128270096",1111,"UPI","2026-08-29"],["Shreyu patel","",1111,"UPI","2026-08-24"],["Rushi maheshbhai patel","",1111,"UPI","2026-08-28"],["Kevin patel","",1111,"UPI","2026-08-24"],["Patel parth janak bhai","",1101,"UPI","2026-09-06"],["Patel aksharbhai satishbhai","",1101,"UPI","2026-09-06"],["Patel sandip jashbhai","",1100,"UPI","2026-09-19"],["Patel Amrish vallabhbhai","",1100,"UPI","2026-09-14"],["Patel sandipbhai gordhanbhai","",1100,"UPI","2026-09-09"],["Day & night tournament","",1100,"UPI","2026-09-03"],["Patel hitesh dilipbhai","9974925434",1100,"UPI","2026-09-03"],["Nayan bhai vyash","",1100,"UPI","2026-08-24"],["Vishal mahendra bhai patel","",1100,"UPI","2026-08-28"],["Patel nital chimanbhai","",1011,"UPI","2026-09-06"],["Upadhyay ayush maheshbhai","9510997271",1009,"UPI","2026-08-30"],["Patel pratik ghanshambhai","",1001,"UPI","2026-09-21"],["Upadhyay nikunj bharat bhai","",1001,"UPI","2026-09-17"],["Patel kartik vijay bhai","9558213265",1001,"Cash","2026-09-08"],["Patel yug hitesh bhai","",1001,"UPI","2026-09-06"],["Patel vivek ashok bhai","9662468382",1001,"UPI","2026-09-02"],["Patel jay vipul bhai","",1001,"UPI","2026-09-02"],["Kunal panchal bhono","",1001,"Cash","2026-08-24"],["Balodiya bhavesh dasbhai","",1000,"Cash","2026-09-24"],["Patel pinkal murjibhai","",1000,"Cash","2026-09-19"],["Patel kalpesh shivabhai(sadam)","",1000,"Cash","2026-09-19"],["Patel kishan shailesh","",1000,"UPI","2026-09-18"],["Ram bharoshe murti","",1000,"UPI","2026-09-06"],["Patel shailesh chatur bhai","9898579929",1000,"UPI","2026-09-06"],["Patel pragnesh bhai naginbhai","",1000,"UPI","2026-08-30"],["Patel jaimin rajubhai","7016880204",551,"UPI","2026-09-05"],["Tarun panchal","9662457666",521,"UPI","2026-08-29"],["Patel om sanjay bhai","9313616489",501,"UPI","2026-09-02"],["Sadhu amit bhai balubhai","9724260744",501,"UPI","2026-08-29"],["Patel jashoda ben (સખી મંડળ)","9662952129",500,"Cash","2026-09-23"],["Solanki lalji udesing","7984114923",500,"Cash","2026-09-23"],["Patel prakash sanabhai","",500,"Cash","2026-09-17"],["Patel tirth Sanjay bhai","",500,"UPI","2026-09-16"],["Patel krish pankaj bhai","7041472674",500,"UPI","2026-09-07"],["Patel Rakeshbhai ramesh bhai","",500,"Cash","2026-09-06"],["Patel ashwinbhai ramdasbhai","",500,"Cash","2026-09-06"],["Vyas jatinbhai kantibhai","",500,"Cash","2026-09-06"],["Patel parthmesh tushar bhai","",500,"UPI","2026-08-30"],["Hardik sadhu","9601537244",500,"Cash","2026-08-24"],["Ram bharoshe","",300,"Cash","2026-09-29"]],"exp":[["Dj ambe sound","Sound System","Ganesh Utsav",25000,"UPI","2026-09-27",""],["Bhajan","Other","Ganesh Utsav",10000,"UPI","2026-09-20",""],["mandap decoration","Decoration","Ganesh Utsav",9000,"UPI","2026-09-27",""],["Murti","Other","Ganesh Utsav",8000,"UPI","2026-09-06",""],["Flower decoration","Decoration","Ganesh Utsav",5200,"UPI","2026-09-13",""],["Murti","Other","Ganesh Utsav",5000,"UPI","2026-08-28",""],["Murti decoration","Decoration","Ganesh Utsav",4350,"UPI","2026-09-09",""],["Gift","Other","Ganesh Utsav",4030,"UPI","2026-09-29",""],["Mahesh boman","Other","Ganesh Utsav",4000,"Cash","2026-09-27",""],["Ganpati sambhadvana","Other","Ganesh Utsav",3500,"UPI","2026-09-27",""],["Patti","Other","Ganesh Utsav",3500,"UPI","2026-09-21",""],["Jamanvad na","Food","Ganesh Utsav",3000,"UPI","2026-09-19",""],["Dharsala","Food","Ganesh Utsav",3000,"UPI","2026-09-06",""],["Murti decoration","Decoration","Ganesh Utsav",2500,"UPI","2026-09-08",""],["Bataka paua","Food","Ganesh Utsav",2495,"UPI","2026-09-27",""],["Babukaka","Food","Ganesh Utsav",2400,"UPI","2026-09-28",""],["Nareshwar (nasta na)","Food","Ganesh Utsav",2400,"UPI","2026-09-25",""],["Nasto rat mate","Food","Ganesh Utsav",2200,"UPI","2026-09-23","Moti mahel nasta"],["Other","Transport","Ganesh Utsav",2000,"UPI","2026-09-25",""],["Patti","Other","Ganesh Utsav",1750,"UPI","2026-09-18",""],["Mangal murti","Other","Ganesh Utsav",1700,"UPI","2026-09-06",""],["Nasto rat mate","Food","Ganesh Utsav",1450,"UPI","2026-09-17",""],["Murti exchange","Other","Ganesh Utsav",1200,"UPI","2026-09-09",""],["Nasto rat mate","Food","Ganesh Utsav",1150,"UPI","2026-09-23","Sabudala ni khichdi "],["Chhuta bhul (gulab)","Decoration","Ganesh Utsav",1000,"UPI","2026-09-27",""],["Ganesh yag (farar mate)","Food","Ganesh Utsav",1000,"Cash","2026-09-26",""],["Food agman","Food","Ganesh Utsav",870,"UPI","2026-09-06",""],["Lari vada","Transport","Ganesh Utsav",800,"Cash","2026-09-25",""],["Tempo diesel","Transport","Ganesh Utsav",800,"Cash","2026-09-08",""],["Tempo (petrol)","Transport","Ganesh Utsav",800,"UPI","2026-09-06",""],["Other","Other","Janmashtami",750,"UPI","2026-09-27",""],["Visharjan kharch","Food","Ganesh Utsav",660,"UPI","2026-09-27",""],["Nasto rat no","Food","Ganesh Utsav",500,"UPI","2026-09-16",""],["Food agman","Food","Ganesh Utsav",260,"Cash","2026-09-14",""],["Other","Other","Ganesh Utsav",250,"UPI","2026-09-19",""],["Other","Other","Ganesh Utsav",170,"UPI","2026-09-25",""],["Decoration","Decoration","Ganesh Utsav",160,"UPI","2026-09-17",""]],"nasta":["Patel kevinbhai mohanbhai","Patel girishbhai naranbhai","Patel piyushbhai ishwarbhai","Patel daxeshbhai bhikhabhai","Patel mayankbhai prakashbhai","Patel neelbhai jyotishbhai"]};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const dt=s=>new Date(s+'T00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+const sum=a=>a.reduce((t,r)=>t+r.amt,0);
+const don=D.don.map(r=>({name:r[0],mob:r[1],amt:r[2],mode:r[3],date:r[4]}));
+const exp=D.exp.map(r=>({item:r[0],cat:r[1],amt:r[3],mode:r[4],date:r[5],note:r[6]}));
+const TD=sum(don),TE=sum(exp),PR=TD-TE;
+const by=(a,k)=>a.reduce((m,r)=>(m[r[k]]=(m[r[k]]||0)+r.amt,m),{});
+const ICON={Decoration:'🌸',Food:'🍛',Other:'🪔','Sound System':'🔊',Transport:'🚚'};
+const SORT={amt:(a,b)=>b.amt-a.amt,new:(a,b)=>b.date.localeCompare(a.date),az:(a,b)=>(a.name||a.item).localeCompare(b.name||b.item)};
+const TABS=[['dash','📊','Dashboard'],['don','🙏','Donations'],['exp','🧾','Expenses'],['sum','📈','Summary']];
+const PH={dash:'Search everything: name, mobile, item, amount',don:'Search donor, mobile or amount',exp:'Search expense, category or amount',sum:'Search category or nasta name'};
+let view='dash',q='',st={dm:'All',ds:'amt',ec:'All',em:'All',es:'amt'},charts=[];
+if(window.Chart){Chart.defaults.color='#8582a8';Chart.defaults.maintainAspectRatio=false;Chart.defaults.font.family="'Noto Sans Gujarati',system-ui,sans-serif"}
+const txt=r=>[r.name,r.item,r.mob,r.cat,r.mode,r.note,r.amt,dt(r.date)].join(' ').toLowerCase();
+const row=(r,d)=>`<div class="row"><div class="av ${d?'':'ex'}">${d?esc(r.name[0].toUpperCase()):ICON[r.cat]||'🪔'}</div><div class="nm"><b>${esc(d?r.name:r.item)}</b><small>${d?(r.mob?'📞 '+r.mob:'Mobile not added'):esc(r.cat+(r.note?', '+r.note:''))}</small></div><span class="chip ${r.mode}">${r.mode}</span><span class="dtx">${dt(r.date)}</span><b class="am ${d?'in':'out'}">${inr(r.amt)}</b></div>`;
+const chips=(k,o)=>`<div class="chips">${o.map(v=>`<button data-k="${k}" data-v="${v}" class="${st[k]==v?'on':''}">${v}</button>`).join('')}</div>`;
+const topl=(a,d)=>{const m=a[0].amt;return a.map(r=>`<div class="tb" style="--w:${r.amt/m*100}%"><span>${esc(d?r.name:r.item)}</span><b>${inr(r.amt)}</b></div>`).join('')};
+const mk=(id,cfg)=>{try{charts.push(new Chart($('#'+id),cfg))}catch(e){const c=$('#'+id);if(c)c.parentNode.innerHTML='<div class="empty">Chart could not load. Please check internet and refresh.</div>'}};
+const PAL=['#F5A300','#D6336C','#3B3B98','#0E9F74','#7C4DFF'];
+const donut=(id,o)=>mk(id,{type:'doughnut',data:{labels:Object.keys(o),datasets:[{data:Object.values(o),backgroundColor:PAL,borderWidth:0}]},options:{cutout:'62%',plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>' '+c.label+': '+inr(c.raw)}}}}});
+const empty='<div class="empty">No match found. Try a name, mobile number or amount.</div>';
+function list(d){
+ const m=d?'dm':'em',s=d?'ds':'es';
+ const a=(d?don:exp).filter(r=>txt(r).includes(q)&&(st[m]=='All'||r.mode==st[m])&&(d||st.ec=='All'||r.cat==st.ec)).sort(SORT[st[s]]);
+ return `<div class="tools">${chips(m,['All','UPI','Cash'])}${d?'':chips('ec',['All',...Object.keys(ICON)])}<select data-k="${s}" aria-label="Sort"><option value="amt" ${st[s]=='amt'?'selected':''}>Amount: high to low</option><option value="new" ${st[s]=='new'?'selected':''}>Newest first</option><option value="az" ${st[s]=='az'?'selected':''}>Name A to Z</option></select></div>
+ <p class="tot"><b>${a.length}</b> ${d?'donations':'expenses'} totalling <b>${inr(sum(a))}</b></p>${a.length?a.map(r=>row(r,d)).join(''):empty}`}
+function found(){
+ const a=don.filter(r=>txt(r).includes(q)).sort(SORT.amt),b=exp.filter(r=>txt(r).includes(q)).sort(SORT.amt);
+ return `<div class="hero"><h2>Search results for “${esc(q)}”</h2><p>${a.length} donations (${inr(sum(a))}) and ${b.length} expenses (${inr(sum(b))})</p></div>
+ <h3>Donations</h3>${a.length?a.slice(0,30).map(r=>row(r,1)).join(''):empty}<h3>Expenses</h3>${b.length?b.slice(0,30).map(r=>row(r,0)).join(''):empty}`}
+function dash(){
+ const dm=by(don,'mode'),em=by(exp,'mode'),dc=don.filter(r=>r.mode=='Cash').length;
+ const mini=[['Donor entries',don.length],['Expense entries',exp.length],['Cash donation',inr(dm.Cash)],['UPI donation',inr(dm.UPI)],['Cash expense',inr(em.Cash)],['UPI expense',inr(em.UPI)]];
+ setTimeout(()=>{
+  const days={};don.forEach(r=>days[r.date]=(days[r.date]||0)+r.amt);const ks=Object.keys(days).sort();let c=0;
+  mk('c1',{data:{labels:ks.map(dt),datasets:[{type:'bar',label:'Per day',data:ks.map(k=>days[k]),backgroundColor:'#F5A300',borderRadius:5,yAxisID:'y'},{type:'line',label:'Total so far',data:ks.map(k=>c+=days[k]),borderColor:'#3B3B98',backgroundColor:'#3B3B98',tension:.3,yAxisID:'y2'}]},options:{interaction:{mode:'index',intersect:false},scales:{y:{grid:{color:'#8882'}},y2:{position:'right',grid:{display:false}},x:{grid:{display:false}}}}});
+  donut('c2',dm);donut('c3',by(exp,'cat'));
+ });
+ return `<section class="hero"><div class="kps"><div class="kp"><span>Total donation</span><b data-n="${TD}">0</b></div><div class="kp e"><span>Total expense</span><b data-n="${TE}">0</b></div><div class="kp p"><span>Final profit</span><b data-n="${PR}">0</b></div></div>
+ <div class="meter"><i style="width:${TE/TD*100}%"></i></div><p>${(TE/TD*100).toFixed(1)}% of the collection is spent. ${inr(PR)} (${(PR/TD*100).toFixed(1)}%) is left.</p></section>
+ <div class="mini">${mini.map(m=>`<div><span>${m[0]}</span><b>${m[1]}</b></div>`).join('')}</div>
+ <div class="g"><div class="c s2"><h2>Donation trend</h2><div class="cv"><canvas id="c1"></canvas></div></div>
+ <div class="c"><h2>Donation by mode</h2><div class="cv"><canvas id="c2"></canvas></div></div>
+ <div class="c"><h2>Expense by category</h2><div class="cv"><canvas id="c3"></canvas></div></div>
+ <div class="c"><h2>Top 8 donations</h2>${topl([...don].sort(SORT.amt).slice(0,8),1)}</div>
+ <div class="c"><h2>Top 8 expenses</h2>${topl([...exp].sort(SORT.amt).slice(0,8),0)}</div></div>`}
+function summ(){
+ const ec=by(exp,'cat'),em=by(exp,'mode'),dm=by(don,'mode'),N=D.nasta.filter(n=>n.toLowerCase().includes(q));
+ const cats=Object.entries(ec).filter(e=>e[0].toLowerCase().includes(q)).sort((a,b)=>b[1]-a[1]);
+ setTimeout(()=>mk('c4',{type:'bar',data:{labels:['Donation','Expense','Profit'],datasets:[{data:[TD,TE,PR],backgroundColor:['#F5A300','#D6336C','#0E9F74'],borderRadius:8}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+inr(c.raw)}}},scales:{y:{grid:{color:'#8882'}},x:{grid:{display:false}}}}}));
+ return `<div class="g"><div class="c"><h2>Income vs expense</h2><div class="cv"><canvas id="c4"></canvas></div></div>
+ <div class="c s2"><h2>Expense categories</h2>${cats.length?cats.map(([k,v])=>`<div class="tb" style="--w:${v/TE*100}%"><span>${ICON[k]||''} ${esc(k)} (${(v/TE*100).toFixed(1)}%)</span><b>${inr(v)}</b></div>`).join(''):empty}
+ <h3>Cash and UPI</h3><table><tr><th></th><th>Cash</th><th>UPI</th></tr><tr><td>Donation</td><td>${inr(dm.Cash)}</td><td>${inr(dm.UPI)}</td></tr><tr><td>Expense</td><td>${inr(em.Cash)}</td><td>${inr(em.UPI)}</td></tr><tr><td>Balance</td><td>${inr(dm.Cash-em.Cash)}</td><td>${inr(dm.UPI-em.UPI)}</td></tr></table></div>
+ <div class="c s2"><h2>Nasta contributors</h2>${N.length?N.map((n,i)=>`<div class="tb"><span>${i+1}. ${esc(n)}</span></div>`).join(''):empty}</div></div>`}
+function render(){
+ charts.forEach(c=>c.destroy());charts=[];
+ $('#v').innerHTML=view=='dash'?(q?found():dash()):view=='don'?list(1):view=='exp'?list(0):summ();
+ document.querySelectorAll('[data-n]').forEach(e=>{const n=+e.dataset.n,t0=performance.now(),f=t=>{const p=Math.min(1,(t-t0)/800);e.textContent=inr(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};matchMedia('(prefers-reduced-motion:reduce)').matches?e.textContent=inr(n):requestAnimationFrame(f)});
+ document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==view));
+ $('#q').placeholder=PH[view];$('#x').style.display=q?'block':'none';
+}
+$('#tabs').innerHTML=TABS.map(t=>`<button data-t="${t[0]}"><em>${t[1]}</em>${t[2]}</button>`).join('');
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(b){view=b.dataset.t;render();scrollTo(0,0)}};
+$('#q').oninput=e=>{q=e.target.value.trim().toLowerCase();render()};
+$('#x').onclick=()=>{$('#q').value='';q='';render();$('#q').focus()};
+$('#v').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b){st[b.dataset.k]=b.dataset.v;render()}});
+$('#v').addEventListener('change',e=>{if(e.target.dataset.k){st[e.target.dataset.k]=e.target.value;render()}});
+render();
+</script></body></html>
